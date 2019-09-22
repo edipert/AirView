@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "59795185921",
+    "firebase_url": "https://airview-app.firebaseio.com",
+    "project_id": "airview-app",
+    "storage_bucket": "airview-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59795185921:android:889e387a5f824931707b00",
+        "android_client_info": {
+          "package_name": "com.android.airview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59795185921-muof7jpipi21dvdbvsvo99evltvuhhts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxOiwNDxAuN6f_Etj4K8KL_Z5HM9pBfHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59795185921-muof7jpipi21dvdbvsvo99evltvuhhts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
