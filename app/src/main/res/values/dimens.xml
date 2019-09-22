@@ -5,4 +5,6 @@
     <dimen name="font_medium">16sp</dimen>
     <dimen name="default_button_width">52dp</dimen>
     <dimen name="margin_spacing_smaller">8dp</dimen>
+    <dimen name="small_button_width">36dp</dimen>
+    <dimen name="margin_spacing_large">32dp</dimen>
 </resources>
