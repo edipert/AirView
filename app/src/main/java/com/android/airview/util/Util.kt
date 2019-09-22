@@ -1,6 +1,7 @@
 package com.android.airview.util
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.pm.PackageManager
@@ -121,6 +122,18 @@ object Util {
         this.setContentView(layoutId)
         this.setCancelable(false)
         window?.setBackgroundDrawableResource(R.color.shadow)
+    }
+
+    fun createInfoDialog(context: Context, message: String, callback: (Boolean) -> Unit) {
+        AlertDialog.Builder(context)
+            .setMessage(message)
+            .setPositiveButton(
+                context.getString(R.string.label_ok)
+            ) { _, _ ->
+                callback(true)
+            }.setNegativeButton(context.getString(R.string.label_cancel)) { _, _ ->
+                callback(false)
+            }.create().show()
     }
 
 }

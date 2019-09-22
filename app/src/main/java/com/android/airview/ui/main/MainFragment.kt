@@ -1,7 +1,6 @@
 package com.android.airview.ui.main
 
 import android.Manifest
-import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -121,6 +120,14 @@ class MainFragment : BaseFragment(), MapControllerCallback {
             loading.show()
             txt_clear_filter.visibility = View.GONE
         }
+
+        iv_info.setOnClickListener {
+            context?.let {
+                Util.createInfoDialog(it, getString(R.string.label_filter_tip)) {
+
+                }
+            }
+        }
     }
 
     private fun getFlights(visibleBounds: LatLngBounds) {
@@ -174,20 +181,20 @@ class MainFragment : BaseFragment(), MapControllerCallback {
                 if (permissionsRejected.isNotEmpty()) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (shouldShowRequestPermissionRationale(permissionsRejected[0])) {
-                            AlertDialog.Builder(activity)
-                                .setMessage(getString(R.string.label_location_permission_desc))
-                                .setPositiveButton(
-                                    getString(R.string.label_ok)
-                                ) { _, _ ->
-
-                                    // If clicks to "Tmama" ask for permission again
-                                    Util.requestPermission(this, permissionsRejected)
-                                }.setNegativeButton(getString(R.string.label_cancel)) { _, _ ->
-
-                                    // If clicks "İptal" finish app
-                                    activity?.finish()
-                                }.create().show()
-
+                            context?.let {
+                                Util.createInfoDialog(
+                                    it,
+                                    getString(R.string.label_location_permission_desc)
+                                ) { ok ->
+                                    if (ok) {
+                                        // If clicks to "Tmama" ask for permission again
+                                        Util.requestPermission(this, permissionsRejected)
+                                    } else {
+                                        // If clicks "İptal" finish app
+                                        activity?.finish()
+                                    }
+                                }
+                            }
                             return
                         }
                     }

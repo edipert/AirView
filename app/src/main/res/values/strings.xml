@@ -7,4 +7,5 @@
     <string name="label_location_permission_desc">Servisin çalışabilmesi için konum izinini vermeniz gerekmektedir.</string>
     <string name="label_ok">Tamam</string>
     <string name="label_cancel">İptal</string>
+    <string name="label_filter_tip">Filtrelemek için uçak ikonuna dokunun.</string>
 </resources>
