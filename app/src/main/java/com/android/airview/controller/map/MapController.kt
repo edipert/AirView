@@ -64,6 +64,7 @@ class MapController constructor(
 
             // Set camera listener for movements
             setCameraListener()
+            mapControllerCallback.onMapReady()
         }
     }
 

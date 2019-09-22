@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.android.airview.R
@@ -65,7 +66,6 @@ class MainFragment : BaseFragment(), MapControllerCallback {
             if (Util.checkPlayServices(activity)) {
 
                 // if all permissions are granted continue to process
-                loading.show()
                 mapFragment.getMapAsync(mapController)
             }
         } else {
@@ -134,6 +134,11 @@ class MainFragment : BaseFragment(), MapControllerCallback {
         }
     }
 
+    override fun onMapReady() {
+        if (!loading.isShowing)
+            loading.show()
+    }
+
     override fun searchForVisibleArea(visibleBounds: LatLngBounds) {
         getFlights(visibleBounds)
     }
@@ -170,14 +175,14 @@ class MainFragment : BaseFragment(), MapControllerCallback {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (shouldShowRequestPermissionRationale(permissionsRejected[0])) {
                             AlertDialog.Builder(activity)
-                                .setMessage("Servisin çalışabilmesi için konum izinini vermeniz gerekmektedir.")
+                                .setMessage(getString(R.string.label_location_permission_desc))
                                 .setPositiveButton(
-                                    "Tamam"
+                                    getString(R.string.label_ok)
                                 ) { _, _ ->
 
                                     // If clicks to "Tmama" ask for permission again
                                     Util.requestPermission(this, permissionsRejected)
-                                }.setNegativeButton("İptal") { _, _ ->
+                                }.setNegativeButton(getString(R.string.label_cancel)) { _, _ ->
 
                                     // If clicks "İptal" finish app
                                     activity?.finish()
@@ -203,6 +208,9 @@ class MainFragment : BaseFragment(), MapControllerCallback {
         super.onDestroy()
         viewModel.destroy()
     }
+
+    @VisibleForTesting
+    fun getSupportMapFragment() = mapFragment
 
     companion object {
         const val PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 101

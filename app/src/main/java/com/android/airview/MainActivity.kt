@@ -4,6 +4,8 @@ import android.os.Bundle
 import com.android.airview.ui.base.BaseActivity
 import com.android.airview.ui.main.MainFragment
 
+
+
 class MainActivity : BaseActivity() {
 
     // Single activity
@@ -12,7 +14,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, MainFragment.newInstance(), "MainFragment")
                 .commitNow()
         }
     }

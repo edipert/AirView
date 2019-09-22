@@ -10,7 +10,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject
 
-class MainApplication : Application(), HasActivityInjector, AppComponent.ComponentProvider {
+open class MainApplication : Application(), HasActivityInjector, AppComponent.ComponentProvider {
 
     override fun activityInjector(): AndroidInjector<Activity> {
         return activityInjector
@@ -23,7 +23,10 @@ class MainApplication : Application(), HasActivityInjector, AppComponent.Compone
 
     override fun onCreate() {
         super.onCreate()
+        inject()
+    }
 
+    open fun inject() {
         appComponent = DaggerAppComponent.builder()
             // Bind application instance to component
             .application(this)

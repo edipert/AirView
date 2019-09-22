@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contentDescription="Google Maps"
     tools:context=".ui.main.MainFragment">
 
     <fragment
@@ -18,7 +19,9 @@
         android:id="@+id/txt_clear_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_spacing_medium"
         android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginRight="@dimen/margin_spacing_medium"
         android:background="@drawable/filter_button_background"
         android:drawableRight="@drawable/ic_cancel_black"
         android:drawablePadding="@dimen/margin_spacing_small"
@@ -48,8 +51,8 @@
 
     <ImageView
         android:id="@+id/btn_focus"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="@dimen/default_button_width"
         android:layout_margin="@dimen/margin_spacing_medium"
         android:background="@drawable/search_button_background"
         android:padding="@dimen/margin_spacing_medium"

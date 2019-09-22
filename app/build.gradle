@@ -15,6 +15,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        //testInstrumentationRunner "com.android.airview.TestApplicationTestRunner"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -81,9 +82,25 @@ dependencies {
     testImplementation 'androidx.arch.core:core-testing:2.1.0'
     testImplementation 'org.robolectric:robolectric:4.2'
 
+    testImplementation "androidx.test:core:1.2.0"
+    testImplementation "androidx.test:rules:1.2.0"
+    testImplementation 'androidx.test:runner:1.2.0'
+    testImplementation 'androidx.test.ext:junit:1.1.1'
+
+    androidTestImplementation "androidx.test:core:1.2.0"
+    androidTestImplementation "androidx.test:rules:1.2.0"
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    implementation('androidx.fragment:fragment-testing:1.1.0') {
+        exclude group: 'androidx.test', module: 'core'
+    }
+    debugImplementation('androidx.fragment:fragment-testing:1.1.0') {
+        exclude group: 'androidx.test', module: 'core'
+    }
+    implementation 'androidx.fragment:fragment-ktx:1.1.0'
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
 

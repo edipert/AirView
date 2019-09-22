@@ -4,4 +4,7 @@
     <string name="label_clear_filter">Filtreyi Temizle</string>
     <string name="label_location_warning">Servisi kullanabilmek için konum iznini vermeniz gerekmektedir.</string>
     <string name="label_filter">Sadece %s seferleri gösteriliyor</string>
+    <string name="label_location_permission_desc">Servisin çalışabilmesi için konum izinini vermeniz gerekmektedir.</string>
+    <string name="label_ok">Tamam</string>
+    <string name="label_cancel">İptal</string>
 </resources>
